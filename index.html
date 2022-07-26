@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO Vue.js</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <div v-if="exit" class="login">
+            <input type="text" v-model="login">
+            <input type="password" v-model="pass">
+            <button v-on:click="enter">Войти</button>
+        </div>
+        <div v-else class="todo">
+            <div class="new_quest">
+                <input type="text" v-model="new_quest">
+                <button v-on:click="add_quest">Добавить задачу</button>
+            </div>
+            <ul>
+                <li v-for="(quest, index) in questions">
+                    <div class="li_left">
+                        <input type="checkbox" v-model="quest.check">
+                        <div class="li_content"><a>{{quest.text}}</a></div>
+                    </div>
+                    <button v-on:click="questions.splice(index, 1)" class="btn_del">X</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script src="js/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
